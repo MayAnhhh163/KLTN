@@ -1,0 +1,16 @@
+type,score,indicator,corr
+score_vs_indicator,DII_pca_0100,IT.NET.USER.ZS,0.9234799181003943
+score_vs_indicator,DII_pca_0100,IT.CEL.SETS.P2,0.5954802420732516
+score_vs_indicator,DII_pca_0100,IT.NET.BBND.P2,0.8957811101080948
+score_vs_indicator,DII_pca_0100,IT.NET.SECR.P6,0.8679075671130009
+score_vs_indicator,DII_pca_0100,SE.ADT.LITR.ZS,0.8626519723013965
+score_vs_indicator,DII_pca_0100,SE.SEC.ENRR,0.9118383817671628
+score_vs_indicator,DII_pca_0100,SE.TER.ENRR,0.8689828320023787
+score_vs_indicator,DII_equal_0100,IT.NET.USER.ZS,0.9188156859754772
+score_vs_indicator,DII_equal_0100,IT.CEL.SETS.P2,0.6335775279884317
+score_vs_indicator,DII_equal_0100,IT.NET.BBND.P2,0.8863382072155784
+score_vs_indicator,DII_equal_0100,IT.NET.SECR.P6,0.8613426785254564
+score_vs_indicator,DII_equal_0100,SE.ADT.LITR.ZS,0.8867295847143762
+score_vs_indicator,DII_equal_0100,SE.SEC.ENRR,0.9054997123919964
+score_vs_indicator,DII_equal_0100,SE.TER.ENRR,0.860816416419775
+score_vs_score,DII_pca_0100,DII_equal_0100,0.9971080273463306

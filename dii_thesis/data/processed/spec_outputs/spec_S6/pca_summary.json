@@ -1,0 +1,36 @@
+{
+  "spec": "S6",
+  "indicator_set": "core",
+  "index_method": "pca",
+  "pca_level": "pillar",
+  "pillar_pca": {
+    "pillars_used_in_dii": [
+      "access_use",
+      "quality_infra",
+      "skills"
+    ],
+    "pillar_summaries": {
+      "access_use": {
+        "method": "pca_pc1",
+        "n_indicators": 2,
+        "explained_variance_ratio_pc1": 0.7822098589737104,
+        "sign_flipped": 0,
+        "corr_with_reference": 0.996038189248131
+      },
+      "quality_infra": {
+        "method": "pca_pc1",
+        "n_indicators": 2,
+        "explained_variance_ratio_pc1": 0.9092560551064157,
+        "sign_flipped": 0,
+        "corr_with_reference": 1.0
+      },
+      "skills": {
+        "method": "pca_pc1",
+        "n_indicators": 2,
+        "explained_variance_ratio_pc1": 0.7995130707818654,
+        "sign_flipped": 0,
+        "corr_with_reference": 0.9763327782237582
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "spec": "S2",
+  "indicator_set": "core",
+  "index_method": "equal_weight",
+  "pca_level": "global",
+  "global_pca": {
+    "explained_variance_ratio_pc1": 0.6939316180346923,
+    "sign_flipped": 0,
+    "corr_with_reference_mean_z": 0.9968305688790241
+  }
+}

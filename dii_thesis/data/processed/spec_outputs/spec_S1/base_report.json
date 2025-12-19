@@ -1,0 +1,70 @@
+{
+  "spec": {
+    "name": "S1",
+    "time_window": [
+      2018,
+      2022
+    ],
+    "indicator_set": "core",
+    "index_method": "pca",
+    "clustering_method": "kmeans",
+    "pca_level": "global",
+    "notes": "Main spec: 2018–2022 avg, core indicators, global PCA."
+  },
+  "params": {
+    "min_years_non_missing": 3,
+    "winsor_p": 0.01,
+    "inclusion_rule": "keep countries with >= 5/6 indicators present after min-year rule"
+  },
+  "counts": {
+    "countries_total_in_window": 261,
+    "countries_included": 179,
+    "countries_excluded": 82,
+    "indicators_used": [
+      "IT.NET.USER.ZS",
+      "IT.CEL.SETS.P2",
+      "IT.NET.BBND.P2",
+      "IT.NET.SECR.P6",
+      "SE.ADT.LITR.ZS",
+      "SE.SEC.ENRR"
+    ]
+  },
+  "coverage": [
+    {
+      "indicator_code": "SE.ADT.LITR.ZS",
+      "n_countries_total": 179,
+      "n_non_missing": 70,
+      "coverage_rate": 0.39106145251396646
+    },
+    {
+      "indicator_code": "IT.NET.USER.ZS",
+      "n_countries_total": 179,
+      "n_non_missing": 170,
+      "coverage_rate": 0.9497206703910615
+    },
+    {
+      "indicator_code": "SE.SEC.ENRR",
+      "n_countries_total": 179,
+      "n_non_missing": 173,
+      "coverage_rate": 0.9664804469273743
+    },
+    {
+      "indicator_code": "IT.CEL.SETS.P2",
+      "n_countries_total": 179,
+      "n_non_missing": 179,
+      "coverage_rate": 1.0
+    },
+    {
+      "indicator_code": "IT.NET.BBND.P2",
+      "n_countries_total": 179,
+      "n_non_missing": 179,
+      "coverage_rate": 1.0
+    },
+    {
+      "indicator_code": "IT.NET.SECR.P6",
+      "n_countries_total": 179,
+      "n_non_missing": 179,
+      "coverage_rate": 1.0
+    }
+  ]
+}

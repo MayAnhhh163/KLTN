@@ -1,5 +1,4 @@
 indicator_code,year_from,year_to,n_countries_total,n_countries_non_missing,coverage_rate,notes
-IT.NET.BNDW.PC,2018,2022,260,0,0.0,
 SE.ADT.LITR.ZS,2018,2022,260,146,0.5615384615384615,
 SE.SEC.ENRR,2018,2022,260,213,0.8192307692307692,
 IT.NET.USER.ZS,2018,2022,260,223,0.8576923076923076,

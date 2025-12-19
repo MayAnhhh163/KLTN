@@ -1,0 +1,77 @@
+{
+  "spec": {
+    "name": "S4",
+    "time_window": [
+      2018,
+      2022
+    ],
+    "indicator_set": "core_plus_tertiary",
+    "index_method": "pca",
+    "clustering_method": "kmeans",
+    "pca_level": "global",
+    "notes": "Indicator sensitivity: core + tertiary enrollment."
+  },
+  "params": {
+    "min_years_non_missing": 3,
+    "winsor_p": 0.01,
+    "inclusion_rule": "keep countries with >= 6/7 indicators present after min-year rule"
+  },
+  "counts": {
+    "countries_total_in_window": 261,
+    "countries_included": 158,
+    "countries_excluded": 103,
+    "indicators_used": [
+      "IT.NET.USER.ZS",
+      "IT.CEL.SETS.P2",
+      "IT.NET.BBND.P2",
+      "IT.NET.SECR.P6",
+      "SE.ADT.LITR.ZS",
+      "SE.SEC.ENRR",
+      "SE.TER.ENRR"
+    ]
+  },
+  "coverage": [
+    {
+      "indicator_code": "SE.ADT.LITR.ZS",
+      "n_countries_total": 158,
+      "n_non_missing": 67,
+      "coverage_rate": 0.4240506329113924
+    },
+    {
+      "indicator_code": "IT.NET.USER.ZS",
+      "n_countries_total": 158,
+      "n_non_missing": 149,
+      "coverage_rate": 0.9430379746835443
+    },
+    {
+      "indicator_code": "SE.SEC.ENRR",
+      "n_countries_total": 158,
+      "n_non_missing": 155,
+      "coverage_rate": 0.9810126582278481
+    },
+    {
+      "indicator_code": "SE.TER.ENRR",
+      "n_countries_total": 158,
+      "n_non_missing": 155,
+      "coverage_rate": 0.9810126582278481
+    },
+    {
+      "indicator_code": "IT.CEL.SETS.P2",
+      "n_countries_total": 158,
+      "n_non_missing": 158,
+      "coverage_rate": 1.0
+    },
+    {
+      "indicator_code": "IT.NET.BBND.P2",
+      "n_countries_total": 158,
+      "n_non_missing": 158,
+      "coverage_rate": 1.0
+    },
+    {
+      "indicator_code": "IT.NET.SECR.P6",
+      "n_countries_total": 158,
+      "n_non_missing": 158,
+      "coverage_rate": 1.0
+    }
+  ]
+}

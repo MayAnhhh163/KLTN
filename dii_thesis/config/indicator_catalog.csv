@@ -2,7 +2,6 @@ indicator_code,indicator_name,pillar,direction,unit,source,preferred_transform,p
 IT.NET.USER.ZS,Individuals using the Internet (% of population),access_use,positive,percent,WDI(ITU),none,1,Core inclusion usage measure
 IT.CEL.SETS.P2,Mobile cellular subscriptions (per 100 people),access_use,positive,per100,WDI(ITU),none,1,Mobile gateway proxy
 IT.NET.BBND.P2,Fixed broadband subscriptions (per 100 people),quality_infra,positive,per100,WDI(ITU),none,1,High-quality fixed access
-IT.NET.BNDW.PC,International bandwidth (bits per second per Internet user),quality_infra,positive,bps_per_user,WDI(ITU),log1p,1,Heavy-tailed; recommend log1p
 IT.NET.SECR.P6,Secure Internet servers (per 1 million people),quality_infra,positive,per_million,WDI(Netcraft),log1p,1,Heavy-tailed; recommend log1p
 SE.ADT.LITR.ZS,Adult literacy rate (% ages 15 and above),skills,positive,percent,WDI(UNESCO),none,1,Skills proxy; may be missing for some years
 SE.SEC.ENRR,School enrollment secondary (gross %),skills,positive,percent,WDI(UNESCO),none,1,Skills proxy

@@ -12,7 +12,7 @@ PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 WDI_BASE = "https://api.worldbank.org/v2"
-DATE_RANGE = "2010:2023"  # bạn có thể chỉnh
+DATE_RANGE = "2010:2023"
 DQ_WINDOW = (2018, 2022)
 
 # Lọc aggregates: các entity WB không phải quốc gia thường có region.value == "Aggregates"
