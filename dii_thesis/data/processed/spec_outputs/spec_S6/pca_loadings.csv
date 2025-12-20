@@ -1,7 +1,7 @@
 pillar,indicator_code,pc1_loading,scope
-access_use,IT.NET.USER.ZS,0.6907643077918885,pillar
-access_use,IT.CEL.SETS.P2,0.7230799894069763,pillar
+access_use,IT.NET.USER.ZS,0.7071067811865476,pillar
+access_use,IT.CEL.SETS.P2,0.7071067811865475,pillar
 quality_infra,IT.NET.BBND.P2,0.7071067811865475,pillar
 quality_infra,IT.NET.SECR.P6,0.7071067811865475,pillar
-skills,SE.ADT.LITR.ZS,0.3823639073969584,pillar
-skills,SE.SEC.ENRR,0.924011819361706,pillar
+skills,SE.ADT.LITR.ZS,0.19825977324053004,pillar
+skills,SE.SEC.ENRR,0.9801495101843462,pillar

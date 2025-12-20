@@ -17,9 +17,9 @@
     "inclusion_rule": "keep countries with >= 5/6 indicators present after min-year rule"
   },
   "counts": {
-    "countries_total_in_window": 261,
-    "countries_included": 179,
-    "countries_excluded": 82,
+    "countries_total_in_window": 216,
+    "countries_included": 142,
+    "countries_excluded": 74,
     "indicators_used": [
       "IT.NET.USER.ZS",
       "IT.CEL.SETS.P2",
@@ -32,38 +32,38 @@
   "coverage": [
     {
       "indicator_code": "SE.ADT.LITR.ZS",
-      "n_countries_total": 179,
-      "n_non_missing": 73,
-      "coverage_rate": 0.40782122905027934
-    },
-    {
-      "indicator_code": "IT.NET.USER.ZS",
-      "n_countries_total": 179,
-      "n_non_missing": 170,
-      "coverage_rate": 0.9497206703910615
+      "n_countries_total": 142,
+      "n_non_missing": 36,
+      "coverage_rate": 0.2535211267605634
     },
     {
       "indicator_code": "SE.SEC.ENRR",
-      "n_countries_total": 179,
-      "n_non_missing": 174,
-      "coverage_rate": 0.9720670391061452
+      "n_countries_total": 142,
+      "n_non_missing": 137,
+      "coverage_rate": 0.9647887323943662
     },
     {
       "indicator_code": "IT.NET.BBND.P2",
-      "n_countries_total": 179,
-      "n_non_missing": 178,
-      "coverage_rate": 0.994413407821229
+      "n_countries_total": 142,
+      "n_non_missing": 141,
+      "coverage_rate": 0.9929577464788732
+    },
+    {
+      "indicator_code": "IT.NET.USER.ZS",
+      "n_countries_total": 142,
+      "n_non_missing": 142,
+      "coverage_rate": 1.0
     },
     {
       "indicator_code": "IT.CEL.SETS.P2",
-      "n_countries_total": 179,
-      "n_non_missing": 179,
+      "n_countries_total": 142,
+      "n_non_missing": 142,
       "coverage_rate": 1.0
     },
     {
       "indicator_code": "IT.NET.SECR.P6",
-      "n_countries_total": 179,
-      "n_non_missing": 179,
+      "n_countries_total": 142,
+      "n_non_missing": 142,
       "coverage_rate": 1.0
     }
   ]

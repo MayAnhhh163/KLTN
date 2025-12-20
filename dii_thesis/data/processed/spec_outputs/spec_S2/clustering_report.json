@@ -4,23 +4,23 @@
   "silhouette_table": [
     {
       "k": 2,
-      "silhouette": 0.6274632589891985
+      "silhouette": 0.616480736352487
     },
     {
       "k": 3,
-      "silhouette": 0.5764964301543629
+      "silhouette": 0.56130047425312
     },
     {
       "k": 4,
-      "silhouette": 0.5786583894997719
+      "silhouette": 0.5819431364983433
     },
     {
       "k": 5,
-      "silhouette": 0.5675780424525869
+      "silhouette": 0.5690581257173623
     },
     {
       "k": 6,
-      "silhouette": 0.5791099388358738
+      "silhouette": 0.5737988195788956
     }
   ]
 }

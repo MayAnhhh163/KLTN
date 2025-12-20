@@ -1,4 +1,4 @@
 cluster,n_countries,mean_DII,regions,income_groups
-0,53,26.580807207056353,"East Asia & Pacific, Europe & Central Asia, Latin America & Caribbean , Middle East, North Africa, Afghanistan & Pakistan, South Asia, Sub-Saharan Africa ","Low income, Lower middle income, Not classified, Upper middle income"
-1,53,58.596916254627764,"East Asia & Pacific, Europe & Central Asia, Latin America & Caribbean , Middle East, North Africa, Afghanistan & Pakistan, South Asia, Sub-Saharan Africa ","High income, Lower middle income, Upper middle income"
-2,73,82.15596934049488,"East Asia & Pacific, Europe & Central Asia, Latin America & Caribbean , Middle East, North Africa, Afghanistan & Pakistan, North America, Sub-Saharan Africa ","High income, Upper middle income"
+0,34,26.3257853475645,"East Asia & Pacific, Europe & Central Asia, Latin America & Caribbean , Middle East, North Africa, Afghanistan & Pakistan, South Asia, Sub-Saharan Africa ","Low income, Lower middle income, Not classified, Upper middle income"
+1,41,57.44064397402737,"East Asia & Pacific, Europe & Central Asia, Latin America & Caribbean , Middle East, North Africa, Afghanistan & Pakistan, South Asia, Sub-Saharan Africa ","High income, Lower middle income, Upper middle income"
+2,67,82.2579732253407,"East Asia & Pacific, Europe & Central Asia, Latin America & Caribbean , Middle East, North Africa, Afghanistan & Pakistan, North America, Sub-Saharan Africa ","High income, Upper middle income"

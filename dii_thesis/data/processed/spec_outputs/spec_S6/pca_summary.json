@@ -13,23 +13,23 @@
       "access_use": {
         "method": "pca_pc1",
         "n_indicators": 2,
-        "explained_variance_ratio_pc1": 0.7822098589737104,
+        "explained_variance_ratio_pc1": 0.7561826024150322,
         "sign_flipped": 0,
-        "corr_with_reference": 0.996038189248131
+        "corr_with_reference": 1.0
       },
       "quality_infra": {
         "method": "pca_pc1",
         "n_indicators": 2,
-        "explained_variance_ratio_pc1": 0.9092560551064157,
+        "explained_variance_ratio_pc1": 0.9134747719706017,
         "sign_flipped": 0,
         "corr_with_reference": 1.0
       },
       "skills": {
         "method": "pca_pc1",
         "n_indicators": 2,
-        "explained_variance_ratio_pc1": 0.7995130707818654,
+        "explained_variance_ratio_pc1": 0.8307340100582458,
         "sign_flipped": 0,
-        "corr_with_reference": 0.9763327782237582
+        "corr_with_reference": 0.978261184133856
       }
     }
   }
