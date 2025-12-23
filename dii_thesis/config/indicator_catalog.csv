@@ -5,4 +5,4 @@ IT.NET.BBND.P2,Fixed broadband subscriptions (per 100 people),quality_infra,posi
 IT.NET.SECR.P6,Secure Internet servers (per 1 million people),quality_infra,positive,per_million,WDI(Netcraft),log1p,1,Heavy-tailed; recommend log1p
 SE.ADT.LITR.ZS,Adult literacy rate (% ages 15 and above),skills,positive,percent,WDI(UNESCO),none,1,Skills proxy; may be missing for some years
 SE.SEC.ENRR,School enrollment secondary (gross %),skills,positive,percent,WDI(UNESCO),none,1,Skills proxy
-SE.TER.ENRR,School enrollment tertiary (gross %),skills,positive,percent,WDI(UNESCO),none,2,Optional robustness skills proxy
+SE.TER.ENRR,School enrollment tertiary (gross %),skills,positive,percent,WDI(UNESCO),none,1,Optional robustness skills proxy

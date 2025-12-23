@@ -1,5 +1,0 @@
-{
-  "method": "hierarchical_ward",
-  "chosen_k": 3,
-  "note": "k fixed to 3 for interpretability and comparability"
-}

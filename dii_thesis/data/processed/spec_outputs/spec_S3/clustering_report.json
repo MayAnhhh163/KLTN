@@ -1,26 +1,34 @@
 {
+  "spec": "S3",
+  "cluster_on": "DII_primary",
+  "n_countries": 124,
   "method": "kmeans",
   "best_k": 2,
+  "k_selection_method": "silhouette",
   "silhouette_table": [
     {
       "k": 2,
-      "silhouette": 0.6154289200799775
+      "silhouette": 0.6155459697319319
     },
     {
       "k": 3,
-      "silhouette": 0.5861182721734416
+      "silhouette": 0.5824342437979103
     },
     {
       "k": 4,
-      "silhouette": 0.5368572577631908
+      "silhouette": 0.5328246691934582
     },
     {
       "k": 5,
-      "silhouette": 0.5563490888171021
+      "silhouette": 0.5405086897347269
     },
     {
       "k": 6,
-      "silhouette": 0.5847496072570735
+      "silhouette": 0.5611367727357894
     }
-  ]
+  ],
+  "cluster_sizes": {
+    "0": 79,
+    "1": 45
+  }
 }

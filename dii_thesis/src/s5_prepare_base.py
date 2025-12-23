@@ -77,19 +77,10 @@ SPECS: Dict[str, Spec] = {
         pca_level="global",
         notes="Temporal robustness: 2015–2019 avg, core indicators."
     ),
-    # S4 Indicator sensitivity (add tertiary)
+
+    # S4 Clustering robustness (hierarchical)
     "S4": Spec(
         name="S4",
-        time_window=(2018, 2022),
-        indicator_set="core_plus_tertiary",
-        index_method="pca",
-        clustering_method="kmeans",
-        pca_level="global",
-        notes="Indicator sensitivity: core + tertiary enrollment."
-    ),
-    # S5 Clustering robustness (hierarchical)
-    "S5": Spec(
-        name="S5",
         time_window=(2018, 2022),
         indicator_set="core",
         index_method="pca",
@@ -97,9 +88,9 @@ SPECS: Dict[str, Spec] = {
         pca_level="global",
         notes="Clustering robustness: hierarchical Ward (used later), same base dataset as S1."
     ),
-    # S6 Structural test (pillar PCA + hierarchical)
-    "S6": Spec(
-        name="S6",
+    # S5 Structural test (pillar PCA + hierarchical)
+    "S5": Spec(
+        name="S5",
         time_window=(2018, 2022),
         indicator_set="core",
         index_method="pca",
@@ -446,10 +437,10 @@ def main() -> None:
     # run selected specs
     spec_key = args.spec.upper().strip()
     if spec_key == "ALL":
-        keys = ["S1", "S2", "S3", "S4", "S5", "S6"]
+        keys = ["S1", "S2", "S3", "S4", "S5"]
     else:
         if spec_key not in SPECS:
-            raise ValueError(f"--spec phải là S1..S6 hoặc ALL. Bạn nhập: {args.spec}")
+            raise ValueError(f"--spec phải là S1..S5 hoặc ALL. Bạn nhập: {args.spec}")
         keys = [spec_key]
 
     ensure_dir(outroot)

@@ -5,11 +5,11 @@
       2018,
       2022
     ],
-    "indicator_set": "core_plus_tertiary",
+    "indicator_set": "core",
     "index_method": "pca",
-    "clustering_method": "kmeans",
+    "clustering_method": "hierarchical_ward",
     "pca_level": "global",
-    "notes": "Indicator sensitivity: core + tertiary enrollment."
+    "notes": "Clustering robustness: hierarchical Ward (used later), same base dataset as S1."
   },
   "params": {
     "min_years_non_missing": 3,

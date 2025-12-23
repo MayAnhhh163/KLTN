@@ -4,8 +4,8 @@
   "index_method": "pca",
   "pca_level": "global",
   "global_pca": {
-    "explained_variance_ratio_pc1": 0.6883765204938765,
+    "explained_variance_ratio_pc1": 0.6604292822321098,
     "sign_flipped": 0,
-    "corr_with_reference_mean_z": 0.9963252615081197
+    "corr_with_reference_mean_z": 0.9956246004323469
   }
 }

@@ -1,26 +1,36 @@
 {
+  "spec": "S1",
+  "cluster_on": "DII_primary",
+  "n_countries": 121,
   "method": "kmeans",
-  "best_k": 2,
+  "best_k": 4,
+  "k_selection_method": "silhouette",
   "silhouette_table": [
     {
       "k": 2,
-      "silhouette": 0.6066711091935904
+      "silhouette": 0.5943728244788183
     },
     {
       "k": 3,
-      "silhouette": 0.5791867588075851
+      "silhouette": 0.608894663598155
     },
     {
       "k": 4,
-      "silhouette": 0.5809132229434331
+      "silhouette": 0.6164075612186627
     },
     {
       "k": 5,
-      "silhouette": 0.5516714931132095
+      "silhouette": 0.5582080504151888
     },
     {
       "k": 6,
-      "silhouette": 0.5798511992926845
+      "silhouette": 0.5869594643380782
     }
-  ]
+  ],
+  "cluster_sizes": {
+    "0": 40,
+    "1": 8,
+    "2": 53,
+    "3": 20
+  }
 }

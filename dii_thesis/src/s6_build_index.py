@@ -51,9 +51,8 @@ SPECS: Dict[str, Spec] = {
     "S1": Spec(name="S1", indicator_set="core", index_method="pca", pca_level="global"),
     "S2": Spec(name="S2", indicator_set="core", index_method="equal_weight", pca_level="global"),
     "S3": Spec(name="S3", indicator_set="core", index_method="pca", pca_level="global"),
-    "S4": Spec(name="S4", indicator_set="core_plus_tertiary", index_method="pca", pca_level="global"),
-    "S5": Spec(name="S5", indicator_set="core", index_method="pca", pca_level="global"),
-    "S6": Spec(name="S6", indicator_set="core", index_method="pca", pca_level="pillar"),
+    "S4": Spec(name="S4", indicator_set="core", index_method="pca", pca_level="global"),
+    "S5": Spec(name="S5", indicator_set="core", index_method="pca", pca_level="pillar"),
 }
 
 
@@ -362,7 +361,7 @@ def run_spec(spec_root: Path, spec: Spec, cat: pd.DataFrame) -> None:
     # Determine "primary" DII for the spec (used later in clustering)
     if spec.name == "S2":
         primary = "DII_equal_0100"
-    elif spec.name == "S6":
+    elif spec.name == "S5":
         primary = "DII_pillar_0100"
     else:
         primary = "DII_pca_0100"
@@ -397,9 +396,9 @@ def run_spec(spec_root: Path, spec: Spec, cat: pd.DataFrame) -> None:
 # -----------------------------
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser(description="Step 6: Build DII indices (PCA / equal-weight / pillar PCA) for multi-spec.")
-    ap.add_argument("--spec_root", type=str, required=True, help="Root folder containing spec_S1..spec_S6 from Step 5")
+    ap.add_argument("--spec_root", type=str, required=True, help="Root folder containing spec_S1..spec_S5 from Step 5")
     ap.add_argument("--catalog", type=str, required=True, help="Path to indicator_catalog.csv")
-    ap.add_argument("--spec", type=str, default="ALL", help="S1..S6 or ALL")
+    ap.add_argument("--spec", type=str, default="ALL", help="S1..S5 or ALL")
     return ap.parse_args()
 
 
@@ -417,10 +416,10 @@ def main() -> None:
 
     key = args.spec.upper().strip()
     if key == "ALL":
-        keys = ["S1", "S2", "S3", "S4", "S5", "S6"]
+        keys = ["S1", "S2", "S3", "S4", "S5"]
     else:
         if key not in SPECS:
-            raise ValueError("--spec phải là S1..S6 hoặc ALL")
+            raise ValueError("--spec phải là S1..S5 hoặc ALL")
         keys = [key]
 
     for k in keys:

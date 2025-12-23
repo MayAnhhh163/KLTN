@@ -1,6 +1,6 @@
 {
   "spec": "S4",
-  "indicator_set": "core_plus_tertiary",
+  "indicator_set": "core",
   "index_method": "pca",
   "pca_level": "global",
   "global_pca": {
