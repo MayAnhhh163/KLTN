@@ -139,7 +139,7 @@ def main():
     raw_long_clean = raw_long_clean.dropna(subset=["year"]).copy()
     raw_long_clean["year"] = raw_long_clean["year"].astype(int)
 
-    # dập trùng chắc chắn lần nữa
+    # loại trùng chắc chắn lần nữa
     raw_long_clean = (
         raw_long_clean
         .sort_values(["country_iso3", "year", "indicator_code"])

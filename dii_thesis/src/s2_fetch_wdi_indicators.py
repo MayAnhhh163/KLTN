@@ -105,11 +105,11 @@ def main():
 
     raw_long = raw_long.dropna(subset=["country_iso3", "year"]).copy()
 
-    # Nên đảm bảo ISO3 là 3 ký tự (nhưng lưu ý: aggregates cũng có 3 ký tự,
+    # Nên đảm bảo ISO3 là 3 ký tự (nhưng: aggregates cũng có 3 ký tự,
     # nên bước này KHÔNG đủ để loại aggregates; chỉ giúp bỏ noise ISO không hợp lệ)
     raw_long = raw_long[raw_long["country_iso3"].str.len() == 3].copy()
 
-    # Dập trùng ở mức record:
+    # Loại trùng ở mức record:
     # nếu cùng iso3-year-indicator xuất hiện nhiều dòng, giữ dòng đầu tiên
     raw_long = (
         raw_long

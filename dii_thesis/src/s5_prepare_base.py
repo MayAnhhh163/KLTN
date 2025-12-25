@@ -32,7 +32,7 @@ import pandas as pd
 
 
 # -----------------------------
-# Specifications (6 specs)
+# Specifications (5 specs)
 # -----------------------------
 
 @dataclass(frozen=True)
@@ -440,7 +440,7 @@ def main() -> None:
         keys = ["S1", "S2", "S3", "S4", "S5"]
     else:
         if spec_key not in SPECS:
-            raise ValueError(f"--spec phải là S1..S5 hoặc ALL. Bạn nhập: {args.spec}")
+            raise ValueError(f"--spec phải là S1..S5 hoặc ALL. Nhập: {args.spec}")
         keys = [spec_key]
 
     ensure_dir(outroot)
