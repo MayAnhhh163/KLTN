@@ -1,0 +1,51 @@
+country_iso3,country_name,region,income_group,dii_deep_0_100,dii_core_0_100,rank_deep,rank_core,rank_gap_deep_minus_core,abs_rank_gap
+IND,India,South Asia,Lower middle income,100.0,43.29747409765473,1.0,149.0,-148.0,148.0
+EGY,"Egypt, Arab Rep.","Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,66.63484416649695,46.051832310623944,20.0,145.0,-125.0,125.0
+MWI,Malawi,Sub-Saharan Africa ,Low income,12.11831740773929,12.123260368867852,82.0,207.0,-125.0,125.0
+NER,Niger,Sub-Saharan Africa ,Low income,0.0,14.384487918097092,83.0,202.0,-119.0,119.0
+UGA,Uganda,Sub-Saharan Africa ,Low income,12.46015023290776,21.438206804708297,81.0,191.0,-110.0,110.0
+AZE,Azerbaijan,Europe & Central Asia,Upper middle income,75.63922499411026,61.97100249500899,10.0,105.0,-95.0,95.0
+MYS,Malaysia,East Asia & Pacific,Upper middle income,79.8225767323311,66.49213025996654,8.0,94.0,-86.0,86.0
+OMN,Oman,"Middle East, North Africa, Afghanistan & Pakistan",High income,73.38911850843526,64.82594340769928,15.0,100.0,-85.0,85.0
+BRN,Brunei Darussalam,East Asia & Pacific,High income,83.5371731436142,69.30457271034281,5.0,89.0,-84.0,84.0
+CIV,Cote d'Ivoire,Sub-Saharan Africa ,Lower middle income,19.746959598669022,36.85579324167936,79.0,160.0,-81.0,81.0
+BGD,Bangladesh,South Asia,Lower middle income,35.28803507983737,40.31590552765291,73.0,152.0,-79.0,79.0
+JOR,Jordan,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,36.22473756394063,48.91196311604535,70.0,139.0,-69.0,69.0
+BTN,Bhutan,South Asia,Lower middle income,37.02468036406374,49.393612759834376,69.0,137.0,-68.0,68.0
+PRY,Paraguay,Latin America & Caribbean ,Upper middle income,52.45992995218936,57.70918586800006,55.0,116.0,-61.0,61.0
+DOM,Dominican Republic,Latin America & Caribbean ,Upper middle income,39.16314580347836,52.86708158878445,68.0,129.0,-61.0,61.0
+CHE,Switzerland,Europe & Central Asia,High income,35.00106044140688,92.96430223707382,74.0,16.0,58.0,58.0
+IDN,Indonesia,East Asia & Pacific,Upper middle income,50.029705433623995,58.89923067439632,57.0,115.0,-58.0,58.0
+BHR,Bahrain,"Middle East, North Africa, Afghanistan & Pakistan",High income,83.12808663246058,75.69247477662438,6.0,64.0,-58.0,58.0
+MAR,Morocco,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,55.24480808142365,61.60804045067765,51.0,107.0,-56.0,56.0
+KWT,Kuwait,"Middle East, North Africa, Afghanistan & Pakistan",High income,65.60064991688314,71.72293318812572,22.0,78.0,-56.0,56.0
+PSE,West Bank and Gaza,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,32.39630190286881,54.30345849441301,75.0,128.0,-53.0,53.0
+IRQ,Iraq,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,17.856088648782347,52.50624456706601,80.0,131.0,-51.0,51.0
+NOR,Norway,Europe & Central Asia,High income,47.56032298834777,96.751691694359,61.0,10.0,51.0,51.0
+ISR,Israel,"Middle East, North Africa, Afghanistan & Pakistan",High income,84.20275825293524,81.08100540488526,4.0,53.0,-49.0,49.0
+CRI,Costa Rica,Latin America & Caribbean ,High income,28.62250552420689,88.12499750158183,76.0,27.0,49.0,49.0
+CHN,China,East Asia & Pacific,Upper middle income,77.6860698995809,79.89639923132584,9.0,58.0,-49.0,49.0
+HKG,"Hong Kong SAR, China",East Asia & Pacific,High income,58.342171306698695,100.0,48.0,1.0,47.0,47.0
+SWE,Sweden,Europe & Central Asia,High income,54.30910619759906,99.77716645205436,54.0,7.0,47.0,47.0
+MEX,Mexico,Latin America & Caribbean ,Upper middle income,49.37932486837456,61.82234947779168,59.0,106.0,-47.0,47.0
+JAM,Jamaica,Latin America & Caribbean ,Upper middle income,26.766312412164652,55.31897836920587,77.0,123.0,-46.0,46.0
+BRA,Brazil,Latin America & Caribbean ,Upper middle income,61.15808532144935,70.1897773221383,37.0,83.0,-46.0,46.0
+HRV,Croatia,Europe & Central Asia,High income,74.7491768683268,81.29997095565646,11.0,52.0,-41.0,41.0
+GRC,Greece,Europe & Central Asia,High income,59.169360435586974,99.9935824806949,45.0,6.0,39.0,39.0
+PER,Peru,Latin America & Caribbean ,Upper middle income,48.00430889739559,65.12788420634826,60.0,99.0,-39.0,39.0
+BIH,Bosnia and Herzegovina,Europe & Central Asia,Upper middle income,50.362390299413086,67.97688404294932,56.0,92.0,-36.0,36.0
+UZB,Uzbekistan,Europe & Central Asia,Lower middle income,39.92429155422464,62.99269598113623,67.0,103.0,-36.0,36.0
+HUN,Hungary,Europe & Central Asia,High income,69.05659698543866,80.8806406298368,19.0,54.0,-35.0,35.0
+BLR,Belarus,Europe & Central Asia,Upper middle income,74.43899034294031,82.87588995237708,13.0,48.0,-35.0,35.0
+FIN,Finland,Europe & Central Asia,High income,62.6116613010249,100.0,33.0,1.0,32.0,32.0
+RUS,Russian Federation,Europe & Central Asia,High income,65.28240045057822,80.83437378305618,23.0,55.0,-32.0,32.0
+ECU,Ecuador,Latin America & Caribbean ,Upper middle income,26.3811378370614,60.27473249463447,78.0,109.0,-31.0,31.0
+ALB,Albania,Europe & Central Asia,Upper middle income,41.79952322340544,66.46602618209938,65.0,95.0,-30.0,30.0
+VNM,Viet Nam,East Asia & Pacific,Lower middle income,49.49486664259881,69.48173807788358,58.0,88.0,-30.0,30.0
+ISL,Iceland,Europe & Central Asia,High income,58.554038303292046,92.66753877561942,46.0,17.0,29.0,29.0
+MAC,"Macao SAR, China",East Asia & Pacific,High income,56.05043324184096,91.07365220602564,50.0,22.0,28.0,28.0
+BEL,Belgium,Europe & Central Asia,High income,60.85514879777494,95.42616910567902,39.0,12.0,27.0,27.0
+LUX,Luxembourg,Europe & Central Asia,High income,63.7884748943045,82.45209789152986,25.0,49.0,-24.0,24.0
+SRB,Serbia,Europe & Central Asia,Upper middle income,62.03741890362381,77.84933489400112,36.0,60.0,-24.0,24.0
+SVK,Slovak Republic,Europe & Central Asia,High income,62.3926161488893,80.24473166523597,34.0,57.0,-23.0,23.0
+ARE,United Arab Emirates,"Middle East, North Africa, Afghanistan & Pakistan",High income,90.11447426385013,89.18077514294093,2.0,24.0,-22.0,22.0

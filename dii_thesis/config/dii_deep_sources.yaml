@@ -1,0 +1,114 @@
+time:
+  start_year: 2015
+  end_year: 2025
+
+paths:
+  dii_core_panel: dii_thesis/data/processed/dii_core/dii_core_panel.csv
+  external_dir: dii_thesis/data/external
+  out_dir: dii_thesis/data/processed/dii_deep
+
+collect:
+  # để trống cũng được vì ta tắt download sources
+  oecd_base_url: https://sdmx.oecd.org/public/rest
+  findex_csv_url: ""
+  a4ai_mobile_pricing_xlsx_url: ""
+
+sources:
+  oecd:
+    enabled: false
+
+  a4ai:
+    enabled: false
+
+  findex:
+    enabled: false
+
+  itu:
+    enabled: true
+    indicators:
+      # ---- Affordability (negative: càng đắt càng tệ) ----
+      - code: ITU_MB_DATAONLY_5GB
+        pillar: affordability
+        direction: negative
+        file_glob: "data-only-mobile-broadband-basket-5-gb*.csv"
+
+      - code: ITU_FIXED_BB_5GB
+        pillar: affordability
+        direction: negative
+        file_glob: "fixed-broadband-internet-5-gb*.csv"
+
+      - code: ITU_MB_LOW_BASKET_1GB
+        pillar: affordability
+        direction: negative
+        file_glob: "mobile-broadband-data-and-voice-low-consumption-basket-total-70-min-50-sms-1-gb*.csv"
+
+      - code: ITU_MB_HIGH_BASKET_5GB
+        pillar: affordability
+        direction: negative
+        file_glob: "mobile-broadband-data-and-voice-high-consumption-basket-total-140-min-20-sms-5-gb*.csv"
+
+      # ---- Skills (positive) ----
+      # Mỗi file skills thường có nhiều seriesCode (gender/age/area). Lọc Total rồi aggregate.
+      - code: ITU_SKILL_COMM_COLLAB
+        pillar: skills
+        direction: positive
+        file_glob: "individuals-with-ict-skills-communication-and-collaboration*.csv"
+        series_filter_regex: "HHTotal"
+        aggregate_series: true
+
+      - code: ITU_SKILL_CONTENT_CREATION
+        pillar: skills
+        direction: positive
+        file_glob: "individuals-with-ict-skills-digital-content-creation*.csv"
+        series_filter_regex: "HHTotal"
+        aggregate_series: true
+
+      - code: ITU_SKILL_DATA_LITERACY
+        pillar: skills
+        direction: positive
+        file_glob: "individuals-with-ict-skills-information-and-data-literacy*.csv"
+        series_filter_regex: "HHTotal"
+        aggregate_series: true
+
+      - code: ITU_SKILL_SAFETY
+        pillar: skills
+        direction: positive
+        file_glob: "individuals-with-ict-skills-safety*.csv"
+        series_filter_regex: "HHTotal"
+        aggregate_series: true
+
+      - code: ITU_SKILL_PROBLEM_SOLVING
+        pillar: skills
+        direction: positive
+        file_glob: "individuals-with-ict-skills-problem-solving*.csv"
+        series_filter_regex: "HHTotal"
+        aggregate_series: true
+
+      # skills-by-skill-level: nếu muốn “giữ theo level” thì giữ seriescode, còn không thì aggregate như trên
+      - code: ITU_SKILL_LEVEL
+        pillar: skills
+        direction: positive
+        file_glob: "individuals-with-ict-skills-by-skill-level*.csv"
+        series_filter_regex: "HHTotal"
+        keep_seriescode: true
+
+build:
+  mode: latest_available
+  window_start_year: 2021
+  window_end_year: 2025
+  edition_year: 2025
+
+  # Vì ITU skills coverage có thể thấp, bạn có thể hạ xuống 1 để không bị rớt quá nhiều nước.
+  # Nhưng nếu bạn muốn DII-Deep "đúng nghĩa" (có skills + affordability) thì để 2.
+  min_pillars_required: 2
+
+  aggregation:
+    pillar_agg: mean
+    index_agg: mean
+    use_geometric_index: false
+
+audit:
+  outlier_top_n: 30
+  mc_iterations: 2000
+  mc_level: pillar
+  seed: 42

@@ -1,0 +1,24 @@
+{
+  "panel_path": "/Users/mhe/Documents/GitHub/KLTN/dii_thesis/data/processed/dii_core/dii_core_panel.csv",
+  "check1_pre_vs_post": {
+    "n_countries_with_pre": 216,
+    "n_countries_with_post": 216,
+    "spearman_rank_corr_pre_post": 0.9781060724105278,
+    "median_abs_rank_change": 6.0,
+    "share_abs_rank_change_gt_10": 0.25462962962962965
+  },
+  "check2_minmax_vs_baseline": {
+    "n_countries_compared": 216,
+    "spearman_rank_corr_baseline_vs_minmax": 0.9877479848239037,
+    "median_abs_rank_change": 5.0,
+    "share_abs_rank_change_gt_10": 0.18055555555555555
+  },
+  "check3_strictmissing_vs_baseline": {
+    "n_countries_compared": 216,
+    "spearman_rank_corr_baseline_vs_strict": 0.9937164825674528,
+    "median_abs_rank_change": 3.0,
+    "share_abs_rank_change_gt_10": 0.10185185185185185,
+    "share_observations_with_dii_baseline": 0.9680603948896632,
+    "share_observations_with_dii_strict": 0.8646922183507549
+  }
+}
