@@ -814,7 +814,15 @@ def main(panel: Path, outdir: Path) -> None:
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--panel", type=str, default="dii_thesis/data/processed/dii_core/dii_core_panel.csv")
-    p.add_argument("--outdir", type=str, default="dii_thesis/data/processed/dii_core/benchmark")
+
+    # base_dir = .../dii_thesis (tính từ vị trí file src/s10_benchmark_compare.py)
+    base_dir = Path(__file__).resolve().parents[1]  # dii_thesis/
+    default_panel = base_dir / "data" / "processed" / "dii_core" / "dii_core_panel.csv"
+    default_outdir = base_dir / "data" / "processed" / "dii_core" / "benchmark"
+
+    p.add_argument("--panel", type=str, default=str(default_panel))
+    p.add_argument("--outdir", type=str, default=str(default_outdir))
+
     args = p.parse_args()
     main(Path(args.panel), Path(args.outdir))
+
