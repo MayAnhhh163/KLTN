@@ -54,5 +54,5 @@ DII_PILLARS = {
 # Missingness rule (luận văn - minh bạch, khả thi)
 # - Trụ được tính nếu có >= 1/2 chỉ báo trong trụ
 # - DII được tính nếu có >= 2/3 trụ
-MIN_INDICATORS_PER_PILLAR = 1
+MIN_INDICATORS_PER_PILLAR = 2
 MIN_PILLARS_FOR_DII = 2

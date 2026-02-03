@@ -41,21 +41,40 @@ def dense_rank_desc(s: pd.Series) -> pd.Series:
 
 # -----------------------
 # Load DII
-# -----------------------
 def load_dii_panel(panel_path: Path) -> pd.DataFrame:
     df = pd.read_csv(panel_path)
-    # các cột phổ biến trong pipeline của bạn
+
     needed = ["country_iso3", "country_name", "year", "dii_core_0_100"]
     _require_cols(df, needed, where="DII panel")
+
+    # giữ thêm meta nếu có
+    keep = needed.copy()
+    optional = ["income_group", "region", "lending_type",
+                # GDPpc candidates (bạn giữ cái nào có trong panel thực tế)
+                "gdp_pc", "gdp_per_capita",
+                "NY.GDP.PCAP.CD", "NY.GDP.PCAP.KD", "NY.GDP.PCAP.PP.KD"]
+    for c in optional:
+        if c in df.columns:
+            keep.append(c)
+
+    df = df[keep].copy()
     df["year"] = df["year"].astype(int)
     return df
 
 def dii_country_year(df_panel: pd.DataFrame, year: int) -> pd.DataFrame:
     d = df_panel[df_panel["year"] == year].copy()
-    # nếu có nhiều quan sát/biến thể, vẫn chỉ là 1 quan sát per country-year trong panel của bạn
-    out = d[["country_iso3", "country_name", "year", "dii_core_0_100"]].copy()
+
+    keep = ["country_iso3", "country_name", "year", "dii_core_0_100"]
+    for c in ["income_group", "region", "lending_type",
+              "gdp_pc", "gdp_per_capita",
+              "NY.GDP.PCAP.CD", "NY.GDP.PCAP.KD", "NY.GDP.PCAP.PP.KD"]:
+        if c in d.columns:
+            keep.append(c)
+
+    out = d[keep].copy()
     out = out.rename(columns={"dii_core_0_100": "dii_0_100"})
     return out
+
 
 def dii_country_period_mean(df_panel: pd.DataFrame, start: int, end: int) -> pd.DataFrame:
     d = df_panel[(df_panel["year"] >= start) & (df_panel["year"] <= end)].copy()

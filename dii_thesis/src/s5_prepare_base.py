@@ -15,7 +15,7 @@
 #   1) Chỉ dùng bộ 6 chỉ báo DII-Core
 #   2) Biến đổi: log(1+x) cho IT.NET.SECR.P6
 #   3) Chuẩn hóa: pooled z-score gộp toàn giai đoạn 2015–2022
-#   4) Điểm trụ: trung bình z-score trong trụ, tính nếu có >=1/2 chỉ báo
+#   4) Điểm trụ: trung bình z-score trong trụ, tính nếu có 2/2 chỉ báo
 #   5) DII-Core: trung bình 3 trụ, tính nếu có >=2/3 trụ
 #
 # Run:

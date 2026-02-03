@@ -1,0 +1,134 @@
+{
+  "study_years": [
+    2015,
+    2022
+  ],
+  "core_indicators": [
+    "IT.NET.USER.ZS",
+    "IT.CEL.SETS.P2",
+    "IT.NET.BBND.P2",
+    "IT.NET.SECR.P6",
+    "SE.SEC.ENRR",
+    "SE.TER.ENRR"
+  ],
+  "pillars": {
+    "pillar_access_adoption": [
+      "IT.NET.USER.ZS",
+      "IT.CEL.SETS.P2"
+    ],
+    "pillar_infra_capacity": [
+      "IT.NET.BBND.P2",
+      "IT.NET.SECR.P6"
+    ],
+    "pillar_human_capital": [
+      "SE.SEC.ENRR",
+      "SE.TER.ENRR"
+    ]
+  },
+  "missing_rules": {
+    "min_indicators_per_pillar": 1,
+    "min_pillars_for_dii": 2
+  },
+  "transforms": {
+    "IT.NET.SECR.P6": "log1p"
+  },
+  "pooled_zscalers": {
+    "IT.NET.USER.ZS": {
+      "mean": 59.171225720868996,
+      "std": 28.075034015872472
+    },
+    "IT.CEL.SETS.P2": {
+      "mean": 107.82802727828745,
+      "std": 39.33502308373088
+    },
+    "IT.NET.BBND.P2": {
+      "mean": 15.38781172662225,
+      "std": 14.988417394404024
+    },
+    "IT.NET.SECR.P6": {
+      "mean": 6.048904994373995,
+      "std": 2.9971432198686343
+    },
+    "SE.SEC.ENRR": {
+      "mean": 90.54320672287632,
+      "std": 25.603234056930848
+    },
+    "SE.TER.ENRR": {
+      "mean": 49.805211558388926,
+      "std": 29.23543201806389
+    }
+  },
+  "panel_stats": {
+    "n_rows": 1722,
+    "n_countries": 216,
+    "n_years": 8,
+    "share_with_dii": 0.9680603948896632,
+    "share_with_3_pillars": 0.7293844367015099
+  },
+  "year_stats": [
+    {
+      "year": 2015,
+      "n_rows": 215,
+      "n_countries": 215,
+      "share_has_dii": 0.9767441860465116,
+      "mean_dii": -0.2849276248215353,
+      "median_dii": -0.2566600096284506
+    },
+    {
+      "year": 2016,
+      "n_rows": 215,
+      "n_countries": 215,
+      "share_has_dii": 0.9674418604651163,
+      "mean_dii": -0.209937177555289,
+      "median_dii": -0.13442932228408289
+    },
+    {
+      "year": 2017,
+      "n_rows": 216,
+      "n_countries": 216,
+      "share_has_dii": 0.9722222222222222,
+      "mean_dii": -0.13141298077031974,
+      "median_dii": -0.04785629266169679
+    },
+    {
+      "year": 2018,
+      "n_rows": 216,
+      "n_countries": 216,
+      "share_has_dii": 0.9398148148148148,
+      "mean_dii": -0.09916576869562076,
+      "median_dii": -0.015701696262088578
+    },
+    {
+      "year": 2019,
+      "n_rows": 214,
+      "n_countries": 214,
+      "share_has_dii": 0.9719626168224299,
+      "mean_dii": -0.03540863495133577,
+      "median_dii": 0.05589817334714996
+    },
+    {
+      "year": 2020,
+      "n_rows": 215,
+      "n_countries": 215,
+      "share_has_dii": 0.9720930232558139,
+      "mean_dii": -0.0002932605041243081,
+      "median_dii": 0.08109362382890425
+    },
+    {
+      "year": 2021,
+      "n_rows": 215,
+      "n_countries": 215,
+      "share_has_dii": 0.9720930232558139,
+      "mean_dii": 0.055085398003897175,
+      "median_dii": 0.11529531320503061
+    },
+    {
+      "year": 2022,
+      "n_rows": 216,
+      "n_countries": 216,
+      "share_has_dii": 0.9722222222222222,
+      "mean_dii": 0.10618284127843142,
+      "median_dii": 0.1892882035333322
+    }
+  ]
+}

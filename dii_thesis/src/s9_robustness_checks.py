@@ -30,24 +30,38 @@ def _require_cols(df: pd.DataFrame, cols: list[str]) -> None:
         raise ValueError(f"Thiếu cột bắt buộc: {missing}")
 
 
-def _safe_minmax(series: pd.Series) -> pd.Series:
-    mn = series.min(skipna=True)
-    mx = series.max(skipna=True)
+def _safe_minmax_from_known_minmax(series: pd.Series, mn: float, mx: float) -> pd.Series:
     if pd.isna(mn) or pd.isna(mx) or mx == mn:
         return pd.Series(np.nan, index=series.index)
     return (series - mn) / (mx - mn)
 
 
+def _rescale_0_100_minmax(series: pd.Series) -> pd.Series:
+    """Quy đổi tuyến tính 0–100 theo min/max quan sát được (không clipping)."""
+    valid = series.dropna()
+    if len(valid) == 0:
+        return pd.Series(np.nan, index=series.index)
+    mn, mx = float(valid.min()), float(valid.max())
+    if mx == mn:
+        return pd.Series(np.nan, index=series.index)
+
+    return 100.0 * _safe_minmax_from_known_minmax(series, mn, mx)
+
+
 def compute_dii_from_z(
     df: pd.DataFrame,
-    strict_pillar: bool,
-    min_pillars_for_dii: int = 2,
+    *,
+    min_pillars_for_dii: int,
+    rescale_method: str = "p01_p99_clip",
 ) -> pd.DataFrame:
-    """
-    Tính DII dựa trên *_z đã có sẵn trong dii_core_panel.csv.
-    - strict_pillar=False: trụ tính nếu có >=1/2 biến (như baseline)
-    - strict_pillar=True: trụ chỉ tính nếu đủ 2/2 biến
-    - DII tính nếu có >= min_pillars_for_dii trụ
+    """Tính DII dựa trên *_z đã có sẵn trong dii_core_panel.csv.
+        Quy tắc cố định (đúng với luận văn):
+        - Điểm trụ chỉ được tính khi đủ 2/2 chỉ báo trong trụ.
+        - DII chỉ được tính khi có >= min_pillars_for_dii trụ hợp lệ.
+
+        rescale_method:
+        - "p01_p99_clip": clip p01–p99 rồi quy đổi 0–100 (giống pipeline chính).
+        - "minmax": quy đổi 0–100 theo min/max quan sát (không clip) trên cùng tập hợp lệ.
     """
     out = df.copy()
 
@@ -55,79 +69,33 @@ def compute_dii_from_z(
     zcols = [f"{c}_z" for c in CORE_INDICATORS]
     _require_cols(out, zcols)
 
-    pillar_cols = []
+    pillar_cols: list[str] = []
     for pillar, codes in PILLARS.items():
         cols = [f"{c}_z" for c in codes]
         nonmiss = out[cols].notna().sum(axis=1)
         out[pillar] = out[cols].mean(axis=1, skipna=True)
 
-        if strict_pillar:
-            out.loc[nonmiss < len(cols), pillar] = np.nan
-        else:
-            out.loc[nonmiss < 1, pillar] = np.nan
-
+        # cố định 2/2 cho mọi cấu hình
+        out.loc[nonmiss < len(cols), pillar] = np.nan
         pillar_cols.append(pillar)
 
     out["n_pillars_available"] = out[pillar_cols].notna().sum(axis=1)
     out["dii_z"] = out[pillar_cols].mean(axis=1, skipna=True)
     out.loc[out["n_pillars_available"] < min_pillars_for_dii, "dii_z"] = np.nan
 
-    # scale 0-100 theo p01-p99 của chính phiên bản này
-    valid = out["dii_z"].dropna()
-    if len(valid) > 0:
-        p01, p99 = valid.quantile([0.01, 0.99])
-        clipped = out["dii_z"].clip(lower=p01, upper=p99)
-        out["dii_0_100"] = 100 * (clipped - p01) / (p99 - p01)
-    else:
-        out["dii_0_100"] = np.nan
-
-    return out
-
-
-def compute_dii_minmax(
-    df: pd.DataFrame,
-    strict_pillar: bool,
-    min_pillars_for_dii: int = 2,
-) -> pd.DataFrame:
-    """
-    Tính DII bằng min-max (0-1) trên toàn sample pooled 2015–2022.
-    Dùng trực tiếp các cột indicator trong panel (đã transform log1p cho secure servers).
-    """
-    out = df.copy()
-    _require_cols(out, CORE_INDICATORS)
-
-    # minmax pooled
-    for c in CORE_INDICATORS:
-        out[f"{c}_mm"] = _safe_minmax(out[c])
-
-    pillar_cols = []
-    for pillar, codes in PILLARS.items():
-        cols = [f"{c}_mm" for c in codes]
-        nonmiss = out[cols].notna().sum(axis=1)
-        out[pillar] = out[cols].mean(axis=1, skipna=True)
-
-        if strict_pillar:
-            out.loc[nonmiss < len(cols), pillar] = np.nan
+    if rescale_method == "p01_p99_clip":
+        valid = out["dii_z"].dropna()
+        if len(valid) > 0:
+            p01, p99 = valid.quantile([0.01, 0.99])
+            clipped = out["dii_z"].clip(lower=p01, upper=p99)
+            out["dii_0_100"] = 100.0 * (clipped - p01) / (p99 - p01) if (p99 - p01) > 0 else np.nan
         else:
-            out.loc[nonmiss < 1, pillar] = np.nan
+            out["dii_0_100"] = np.nan
 
-        pillar_cols.append(pillar)
-
-    out["n_pillars_available"] = out[pillar_cols].notna().sum(axis=1)
-    out["dii_mm"] = out[pillar_cols].mean(axis=1, skipna=True)
-    out.loc[out["n_pillars_available"] < min_pillars_for_dii, "dii_mm"] = np.nan
-
-    # scale 0-100 theo min-max của dii_mm (bám logic minmax)
-    valid = out["dii_mm"].dropna()
-    if len(valid) > 0:
-        mn, mx = valid.min(), valid.max()
-        if mx > mn:
-            out["dii_mm_0_100"] = 100 * (out["dii_mm"] - mn) / (mx - mn)
-        else:
-            out["dii_mm_0_100"] = np.nan
+    elif rescale_method == "minmax":
+        out["dii_0_100"] = _rescale_0_100_minmax(out["dii_z"])
     else:
-        out["dii_mm_0_100"] = np.nan
-
+        raise ValueError(f"rescale_method không hợp lệ: {rescale_method}")
     return out
 
 
@@ -149,7 +117,6 @@ def add_rank(df: pd.DataFrame, value_col: str, ascending: bool = False, rank_col
 
 
 def spearman_corr(a: pd.Series, b: pd.Series) -> float:
-    # pandas corr(method='spearman') tự xử lý rank
     tmp = pd.DataFrame({"a": a, "b": b}).dropna()
     if len(tmp) < 3:
         return float("nan")
@@ -187,14 +154,19 @@ def main(panel_path: Path, outdir: Path) -> None:
     }
 
     # =========================
-    # Check 2: Min-max vs baseline (country average 2015–2022)
+    # Check 2: Sensitivity to rescaling 0–100 (same dii_core_z, same sample)
+    # - baseline: dii_core_0_100 (p01–p99 clip) từ pipeline chính
+    # - alternative: min-max theo min/max quan sát (không clip) trên cùng dii_core_z
     # =========================
-    df_mm = compute_dii_minmax(df, strict_pillar=False, min_pillars_for_dii=2)
-    mm_avg = (
-        df_mm.groupby(["country_iso3", "country_name"], as_index=False)["dii_mm_0_100"]
+    alt_0_100 = _rescale_0_100_minmax(df["dii_core_z"])
+    df_alt = df[["country_iso3", "country_name", "year"]].copy()
+    df_alt["dii_minmax_0_100"] = alt_0_100
+
+    alt_avg = (
+        df_alt.groupby(["country_iso3", "country_name"], as_index=False)["dii_minmax_0_100"]
         .mean()
-        .rename(columns={"dii_mm_0_100": "dii_minmax_0_100_mean_2015_2022"})
-    )
+        .rename(columns={"dii_minmax_0_100": "dii_minmax_0_100_mean_2015_2022"})
+            )
 
     base_avg = (
         df.groupby(["country_iso3", "country_name"], as_index=False)["dii_core_0_100"]
@@ -202,12 +174,12 @@ def main(panel_path: Path, outdir: Path) -> None:
         .rename(columns={"dii_core_0_100": "dii_baseline_0_100_mean_2015_2022"})
     )
 
-    c2 = base_avg.merge(mm_avg, on=["country_iso3", "country_name"], how="inner")
+    c2 = base_avg.merge(alt_avg, on=["country_iso3", "country_name"], how="inner")
     c2 = add_rank(c2, "dii_baseline_0_100_mean_2015_2022", ascending=False, rank_col="rank_baseline")
     c2 = add_rank(c2, "dii_minmax_0_100_mean_2015_2022", ascending=False, rank_col="rank_minmax")
     c2["rank_change_minmax_minus_baseline"] = c2["rank_minmax"] - c2["rank_baseline"]
 
-    c2.to_csv(outdir / "robustness_check2_minmax_vs_baseline_country.csv", index=False)
+    c2.to_csv(outdir / "robustness_check2_rescale_minmax_vs_baseline_country.csv", index=False)
 
     summary2 = {
         "n_countries_compared": int(len(c2)),
@@ -217,10 +189,11 @@ def main(panel_path: Path, outdir: Path) -> None:
     }
 
     # =========================
-    # Check 3: Strict missing (pillar requires 2/2)
+    # Check 3: Missingness at index level (baseline >=2/3 vs strict 3/3),
+    #          pillars are always strict 2/2
     # =========================
-    # (a) strict pillar, DII requires >=2 pillars (giữ rule cũ để so sánh)
-    df_strict = compute_dii_from_z(df, strict_pillar=True, min_pillars_for_dii=2)
+    # strict: yêu cầu đủ 3/3 trụ
+    df_strict = compute_dii_from_z(df, min_pillars_for_dii=3, rescale_method="p01_p99_clip")
     strict_avg = (
         df_strict.groupby(["country_iso3", "country_name"], as_index=False)["dii_0_100"]
         .mean()
@@ -231,7 +204,7 @@ def main(panel_path: Path, outdir: Path) -> None:
     c3 = add_rank(c3, "dii_baseline_0_100_mean_2015_2022", ascending=False, rank_col="rank_baseline")
     c3 = add_rank(c3, "dii_strict_0_100_mean_2015_2022", ascending=False, rank_col="rank_strict")
     c3["rank_change_strict_minus_baseline"] = c3["rank_strict"] - c3["rank_baseline"]
-    c3.to_csv(outdir / "robustness_check3_strictmissing_vs_baseline_country.csv", index=False)
+    c3.to_csv(outdir / "robustness_check3_strict3of3_vs_baseline_country.csv", index=False)
 
     # coverage impact
     # tỷ lệ quan sát country-year có dii tính được
@@ -253,8 +226,8 @@ def main(panel_path: Path, outdir: Path) -> None:
     summary = {
         "panel_path": str(panel_path),
         "check1_pre_vs_post": summary1,
-        "check2_minmax_vs_baseline": summary2,
-        "check3_strictmissing_vs_baseline": summary3,
+        "check2_rescale_minmax_vs_baseline": summary2,
+        "check3_strict3of3_vs_baseline": summary3,
     }
 
     with open(outdir / "robustness_summary.json", "w", encoding="utf-8") as f:
@@ -263,8 +236,8 @@ def main(panel_path: Path, outdir: Path) -> None:
     # thêm 1 bảng tổng hợp nhanh cho luận văn
     df_sum = pd.DataFrame([
         {"check": "C1_pre_vs_post", **summary1},
-        {"check": "C2_minmax_vs_baseline", **summary2},
-        {"check": "C3_strictmissing_vs_baseline", **summary3},
+        {"check": "C2_rescale_minmax_vs_baseline", **summary2},
+        {"check": "C3_strict3of3_vs_baseline", **summary3},
     ])
     df_sum.to_csv(outdir / "robustness_summary_table.csv", index=False)
 

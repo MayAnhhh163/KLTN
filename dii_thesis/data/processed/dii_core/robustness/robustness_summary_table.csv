@@ -1,4 +1,4 @@
 check,n_countries_with_pre,n_countries_with_post,spearman_rank_corr_pre_post,median_abs_rank_change,share_abs_rank_change_gt_10,n_countries_compared,spearman_rank_corr_baseline_vs_minmax,spearman_rank_corr_baseline_vs_strict,share_observations_with_dii_baseline,share_observations_with_dii_strict
-C1_pre_vs_post,216.0,216.0,0.9781060724105278,6.0,0.25462962962962965,,,,,
-C2_minmax_vs_baseline,,,,5.0,0.18055555555555555,216.0,0.9877479848239037,,,
-C3_strictmissing_vs_baseline,,,,3.0,0.10185185185185185,216.0,,0.9937164825674528,0.9680603948896632,0.8646922183507549
+C1_pre_vs_post,216.0,216.0,0.9889233676337147,8.0,0.3101851851851852,,,,,
+C2_rescale_minmax_vs_baseline,,,,0.0,0.0,216.0,0.999990249474168,,,
+C3_strict3of3_vs_baseline,,,,11.0,0.3611111111111111,216.0,,0.9935761365558317,0.8646922183507549,0.5278745644599303

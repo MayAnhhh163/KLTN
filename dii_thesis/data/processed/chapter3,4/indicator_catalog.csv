@@ -1,0 +1,8 @@
+indicator_code,indicator_name,pillar,role,include_in_dii_core,direction,unit,source,preferred_transform,priority,notes
+IT.NET.USER.ZS,Individuals using the Internet (% of population),pillar_access_adoption,core,True,positive,percent,WDI(ITU),none,1,Core: mức độ phổ cập sử dụng Internet.
+IT.CEL.SETS.P2,Mobile cellular subscriptions (per 100 people),pillar_access_adoption,core,True,positive,per100,WDI(ITU),none,1,Core: proxy phổ cập kết nối di động.
+IT.NET.BBND.P2,Fixed broadband subscriptions (per 100 people),pillar_infra_capacity,core,True,positive,per100,WDI(ITU),none,1,Core: proxy năng lực hạ tầng băng rộng cố định.
+IT.NET.SECR.P6,Secure Internet servers (per 1 million people),pillar_infra_capacity,core,True,positive,per_million,WDI(Netcraft),log1p,1,Core: proxy trưởng thành hạ tầng số; phân phối lệch -> log(1+x).
+SE.ADT.LITR.ZS,Adult literacy rate (% ages 15 and above),pillar_human_capital,extended,False,positive,percent,WDI(UNESCO),none,2,Extended: bổ sung kỹ năng cơ bản; coverage thấp -> chỉ dùng sensitivity/robustness.
+SE.SEC.ENRR,School enrollment secondary (gross %),pillar_human_capital,core,True,positive,percent,WDI(UNESCO),none,1,Core: proxy vốn nhân lực nền tảng (trung học).
+SE.TER.ENRR,School enrollment tertiary (gross %),pillar_human_capital,core,True,positive,percent,WDI(UNESCO),none,1,Core: proxy vốn nhân lực nâng cao (đại học).

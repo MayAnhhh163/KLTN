@@ -1,0 +1,25 @@
+{
+  "panel_path": "D:\\KLTN\\KLTN\\dii_thesis\\data\\processed\\dii_core\\dii_core_panel.csv",
+  "check54_weights_pca": {
+    "n_countries_compared": 216,
+    "spearman_rank_corr_equal_vs_pca": 0.9993035338691478,
+    "median_abs_rank_change": 1.0,
+    "share_abs_rank_change_gt_10": 0.0,
+    "weights_pca": {
+      "pillar_access_adoption": 0.2830304015915528,
+      "pillar_infra_capacity": 0.3538567403458744,
+      "pillar_human_capital": 0.3631128580625728
+    }
+  },
+  "check55_leave_one_out": {
+    "n_indicators": 6,
+    "max_median_abs_rank_change": 18.0,
+    "min_spearman_rank_corr": 0.9555559428372254
+  },
+  "check56_aggregation_geom": {
+    "n_countries_compared": 216,
+    "spearman_rank_corr_arith_vs_geom": 0.9989580866682453,
+    "median_abs_rank_change": 1.0,
+    "share_abs_rank_change_gt_10": 0.004878048780487805
+  }
+}
